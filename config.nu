@@ -25,24 +25,6 @@ $env.path ++= [
     ~/Desktop/user_PATH,
 ];
 
-# zoxide (h):
-source ~/.zoxide.nu;
-
-def --env --wrapped h [...args] {
-    if ($args | length) > 0 {
-      __zoxide_z ...$args;
-    };
-    clear;
-    print $"(ansi light_gray)[ (pwd) ](ansi reset)";
-    ls -a | reject modified size
-}
-
-alias hh = h ~;
-alias hi = h ..;
-
-# alaises:
-alias reboot = sudo reboot;
-
 # config:
 $env.config.hooks.display_output = {
     if (term size).columns >= 100 {
@@ -63,10 +45,7 @@ use zoxide_h *;
 $env.config.color_config.separator = "white";
 $env.config.color_config.row_index = "white_bold";
 
-# quick commands:
-def --wrapped rip [url: string, ...args] {
-    ^yt-dlp.exe $url -f "ba[ext=wav]/ba[acodec^=mp4a]/ba[ext=aac]/ba[acodec=mp3]" ...$args;
-}
+source ./commands.nu
 
 # end command:
 h
