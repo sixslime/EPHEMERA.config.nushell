@@ -37,8 +37,7 @@ $env.config.hooks.display_output = {
 }
 
 # modules:
-use universal *;
-use universal/standard_toplevel.nu *;
+use universal/std *;
 use zoxide_h *;
 
 # colors:
