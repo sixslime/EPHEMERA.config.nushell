@@ -47,4 +47,4 @@ $env.config.color_config.row_index = "white_bold";
 source ./commands.nu
 
 # end command:
-h
+h -a
